@@ -49,7 +49,9 @@ dependencies {
 //    implementation ("androidx.compose.ui:ui-tooling:1.2.0")
 //    implementation ("androidx.compose.runtime:runtime-livedata:1.2.0")
 //    implementation ("androidx.activity:activity-compose:1.3.1")
-
+    implementation ("com.google.maps.android:maps-compose:6.1.2")
+    implementation ("com.google.accompanist:accompanist-permissions:0.26.2-beta")
+    debugImplementation ("androidx.compose.ui:ui-tooling:1.7.6")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

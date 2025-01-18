@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hex200.runner_app.core.ui.theme.RunnerAppTheme
 import com.hex200.runner_app.ui.homepage.RunTrackerApp
+import com.hex200.runner_app.ui.mapview.RunTrackingScreen
 import kotlinx.coroutines.FlowPreview
 
 class MainActivity : AppCompatActivity() {
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         composeView = findViewById(R.id.composerVIewID)
         composeView.setContent {
             RunnerAppTheme {
-                RunTrackerApp()
+                RunTrackingScreen()
             }
         }
     }
