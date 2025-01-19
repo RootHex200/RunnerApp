@@ -24,6 +24,11 @@ import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.delay
 import java.util.concurrent.TimeUnit
 import com.hex200.runner_app.R
+import androidx.compose.runtime.*
+import com.google.android.gms.location.*
+
+
+
 @Composable
 fun RunTrackingScreen(
 ) {
@@ -33,12 +38,15 @@ fun RunTrackingScreen(
     var pace by remember { mutableStateOf(0.00) }
     var calories by remember { mutableStateOf(0.0) }
 
+
     LaunchedEffect(isTracking) {
         while (isTracking) {
             delay(1000)
             elapsedTime += 1
         }
     }
+
+    
 
     Column(
         modifier = Modifier
@@ -204,6 +212,21 @@ private fun formatTime(seconds: Long): String {
         TimeUnit.SECONDS.toMinutes(seconds) % 60,
         seconds % 60
     )
+}
+
+@Composable
+fun RequestLocationPermissionUsingRememberLauncherForActivityResult(
+    onPermissionGranted: () -> Unit,
+    onPermissionDenied: () -> Unit
+) {
+    val cameraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicture(),
+        onResult = { success ->
+            hasImage = success
+        }
+    )
+
+
 }
 
 @Preview
